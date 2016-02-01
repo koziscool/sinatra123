@@ -10,11 +10,20 @@
       </h1>
     </header>
 
-    <div class="towers row well"></div><!-- towers -->
+    <h4><%= "You win" if win %></h4>
+    <h4><%= "Invalid move" unless valid %></h4>
 
-      <div class="form row">
-        <div class="col-xs-6 col-xs-offset-3"></div>
-      </div><!-- form -->
+    <div class="towers row well">
+      <% towers.each_with_index do |tower, i| %>
+        <%= erb :tower, locals: { tower: tower, tower_number: i + 1 } %>
+      <% end %>
+    </div><!-- towers -->
+
+    <div class="form row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= erb :form %>
+      </div>
+    </div><!-- form -->
 
   </div>
 </div><!-- game -->
